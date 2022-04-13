@@ -1,0 +1,38 @@
+.postList {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.main__lincs {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+}
+
+.left__linc {
+    color: grey;
+}
+
+.right__linc {
+    color: black;
+}
+
+.right__linc:hover {
+    color: black;
+}
+
+.button__container {
+    width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.button {
+    margin-right: 40px;
+    margin-top: 30px;
+}
+
