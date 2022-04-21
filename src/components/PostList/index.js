@@ -1,13 +1,22 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import api from '../../utils/api';
+
 import { Post } from '../Post';
-import mockedData from '../../data.json';
+// import mockedData from '../../data.json';
 import {Button} from '../Button';
 
 import './index.css';
 
 export const PostList = () => {
-  const [posts, setPosts] = useState(mockedData);
+  const [posts, setPosts] = useState([]);
+  
+  useEffect(() => {
+    api.getPosts()
+    .then((posts) => setPosts(posts))
+    .catch((err) => err.message)
+  }, [posts]);
+
   return (
     <>
       <div className='main__lincs'>

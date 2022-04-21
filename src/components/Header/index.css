@@ -16,5 +16,13 @@
     display: flex;
     gap: 10px;
     list-style: none;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.current__user {
     margin-right: 40px;
+    display: flex;
+    align-items: center;
 }

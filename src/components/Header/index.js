@@ -1,8 +1,13 @@
 import React from 'react';
+
+import { Typography, Space } from 'antd';
+
 import logo from '../../assets/svg/logo.svg';
 import './index.css';
 
-export const Header = () => {
+const { Text, Link } = Typography;
+
+export const Header = ({name}) => {
   return (
     <div className='header'>
       <div className='header__container'>
@@ -14,6 +19,9 @@ export const Header = () => {
           <li><a href='#'>Food Dog</a></li>
           <li><a href='#'>GitHub</a></li>
         </ul>
+        <div className='current__user'>
+          <Text strong>User: {name}</Text>
+        </div>
       </div>
     </div>
   )

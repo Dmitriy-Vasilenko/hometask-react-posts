@@ -14,3 +14,24 @@ h4 {
 .time__line {
     margin-top: 10px;
 }
+
+.heart {
+    font-size: 20px;
+    color: grey;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+.heart:hover {
+    color: red;
+}
+
+.heart__sum {
+    color: grey;
+    padding: 0;
+}
