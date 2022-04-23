@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Typography, Space } from 'antd';
+import { Typography } from 'antd';
 
 import logo from '../../assets/svg/logo.svg';
 import './index.css';
 
-const { Text, Link } = Typography;
+const { Text } = Typography;
 
 export const Header = ({name}) => {
   return (

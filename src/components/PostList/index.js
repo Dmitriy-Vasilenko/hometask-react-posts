@@ -1,22 +1,11 @@
-import React, { useEffect, useState } from 'react';
-
-import api from '../../utils/api';
+import React from 'react';
 
 import { Post } from '../Post';
-// import mockedData from '../../data.json';
-import {Button} from '../Button';
+import { Button } from '../Button';
 
 import './index.css';
 
-export const PostList = () => {
-  const [posts, setPosts] = useState([]);
-  
-  useEffect(() => {
-    api.getPosts()
-    .then((posts) => setPosts(posts))
-    .catch((err) => err.message)
-  }, [posts]);
-
+export const PostList = ({ posts, user }) => {
   return (
     <>
       <div className='main__lincs'>
@@ -34,8 +23,8 @@ export const PostList = () => {
         </div>
       </div>
       <div className='postList'>
-        {posts.map((el) => <Post key={el._id} data={el}/>)}
+        {posts.map((el) => <Post key={el._id} data={el} user={user}/>)}
       </div>
     </>
   )
-}
+};

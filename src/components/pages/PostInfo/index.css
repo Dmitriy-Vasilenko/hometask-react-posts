@@ -1,0 +1,25 @@
+.postinfo__container {
+    display: flex;
+    border: red;
+}
+
+.avatar__email {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.content {
+    margin-top: 15px;
+}
+
+button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+h4 {
+    white-space: normal;
+}

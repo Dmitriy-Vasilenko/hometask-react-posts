@@ -22,7 +22,19 @@ h4 {
     gap: 7px;
     align-items: center;
     position: absolute;
-    left: 10px;
+    left: 24px;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+.heart__favotite {
+    font-size: 20px;
+    color: red;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    position: absolute;
+    left: 24px;
     bottom: 10px;
     cursor: pointer;
 }
