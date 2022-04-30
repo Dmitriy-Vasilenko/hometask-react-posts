@@ -4,7 +4,7 @@ import './index.css';
 export const Footer = () => {
   return (
     <div className='footer'>
-      ©️ You!
+      ©️ Дмитрий Василенко
     </div>
   )
 }

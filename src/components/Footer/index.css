@@ -5,4 +5,6 @@
     display: flex;
     justify-content: center;
     padding: 20px 0;
+    background: linear-gradient(to right, #F8F32B, #BFFF00);
+    box-shadow: 0px -1px 5px rgb(190, 212, 190);
 }

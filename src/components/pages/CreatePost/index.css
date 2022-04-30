@@ -1,0 +1,17 @@
+form {
+    width: inherit;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: end;
+    margin-top: 25px;
+    margin-right: -10px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

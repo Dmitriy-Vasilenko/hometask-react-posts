@@ -1,14 +1,27 @@
+.post__container {
+    background: rgba(250, 250, 250, 0.3);
+    border: 1px solid rgb(216, 213, 213);
+}
+
+.post__container:hover {
+    box-shadow: 10px 10px 10px rgb(230, 230, 235);
+    transition: box-shadow 0.3s;
+}
+
 .avatar__email {
     display: flex;
     gap: 10px;
 }
 
 h4 {
-    margin-top: 10px;
+    margin: 0;
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
     margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .time__line {
@@ -46,4 +59,21 @@ h4 {
 .heart__sum {
     color: grey;
     padding: 0;
+}
+
+.autor__about {
+    font-size: 12px;
+    color: grey;
+    margin: 0;
+}
+
+.comments__info {
+    font-size: 20px;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    position: absolute;
+    left: 94px;
+    bottom: 10px;
+    color: grey;
 }

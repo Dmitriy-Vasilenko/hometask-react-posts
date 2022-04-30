@@ -8,15 +8,10 @@ import './index.css';
 export const PostList = ({ posts, user }) => {
   return (
     <>
-      <div className='main__lincs'>
-        <a className='left__linc'>Home</a>
-        <p>/</p>
-        <a className='right__linc'>All posts</a>
-      </div>
       <div className='button__container'>
         <div>
-          <h1>Welcome to Our Image Board!</h1>
-          <p>We're stoked that you're here. 🥳</p>
+          <h1>Добро пожаловать в приложение!</h1>
+          <p>Создай свой уникальный пост. 🥳</p>
         </div>
         <div className='button'>
           <Button />

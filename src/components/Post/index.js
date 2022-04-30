@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
-import { Card, Avatar, Tag, Timeline } from 'antd';
-import { HeartFilled, UserOutlined } from '@ant-design/icons';
+import { Card, Avatar, Tag, Timeline, Image } from 'antd';
+import { HeartFilled, CommentOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ru';
 import Text from 'antd/lib/typography/Text';
 
 import 'antd/dist/antd.css';
@@ -28,13 +30,25 @@ export const Post = ({ data, user }) => {
 
   return (
     <>
-      <Card title={<Link to={`post/${data._id}`}>{data.title}</Link>} style={{ width: 300 }}>
+      <Card 
+        className='post__container'
+        title={
+          <div className='avatar__email'>
+            <Avatar src={data?.author.avatar} size="large" />
+            <div>
+              <h4>{data?.author.name}</h4>
+              <p className='autor__about'>{data?.author.about}</p>
+            </div>
+          </div>
+        } 
+        style={{ width: 300 }}
+      >
         <div className='avatar__email'>
-          <Avatar size="large" icon={<UserOutlined />} />
-          <h4>{data?.author.email}</h4>
+          <Link to={`post/${data._id}`}><Image preview={false} src={data?.image} /></Link>
         </div>
         <div className='content'>
-          <p>{data?.text}</p>
+          <Text strong={true}>{data?.title}</Text>
+          <Text>{data?.text}</Text>
         </div>
         <div>
           <span>Tags: </span>
@@ -42,8 +56,8 @@ export const Post = ({ data, user }) => {
         </div>
         <div className='time__line'>
           <Timeline>
-            <Timeline.Item>{data.created_at}</Timeline.Item>
-            <Timeline.Item color='green'>Last edit {data?.updated_at}</Timeline.Item>
+            <Timeline.Item>{dayjs(data.created_at).locale('ru').format('DD MMMM YYYY, HH:mm')}</Timeline.Item>
+            <Timeline.Item color='green'>Пост отредактирован: {dayjs(data?.updated_at).locale('ru').format('DD MMMM YYYY, HH:mm')}</Timeline.Item>
           </Timeline>
         </div>
         {isInFavorite ? (
@@ -57,6 +71,10 @@ export const Post = ({ data, user }) => {
               <Text className='heart__sum'>{favorite?.length}</Text>
             </div>)
         }
+        <div className='comments__info'>
+          <CommentOutlined />
+          <Text className='heart__sum'>{data?.comments.length}</Text>
+        </div>
       </Card>
     </>
   );

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router';
 import './App.css';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
+import { CreatePost } from './components/pages/CreatePost';
 import { PostInfo } from './components/pages/PostInfo';
 import { PostList } from './components/PostList';
 
@@ -26,11 +27,11 @@ function App() {
 
   return (
     <div className='appContainer'>
-      <Header name={user?.name}/>
+      <Header user={user}/>
       <Routes>
         <Route path='/' element={<PostList posts={posts} user={user}/>}/>
-        <Route path='post/:postID' element={<PostInfo posts={posts}/>}/>
-        <Route path='post/create' element={<>CREATE POST</>}/>
+        <Route path='post/:postID' element={<PostInfo posts={posts} user={user} changePosts={setPosts}/>}/>
+        <Route path='post/create' element={<CreatePost changePosts={setPosts}/>} />
       </Routes>
       <Footer />
     </div>

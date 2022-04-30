@@ -1,26 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { Typography } from 'antd';
+import { Typography, Avatar } from 'antd';
 
 import logo from '../../assets/svg/logo.svg';
 import './index.css';
 
 const { Text } = Typography;
 
-export const Header = ({name}) => {
+export const Header = ({user}) => {
   return (
     <div className='header'>
       <div className='header__container'>
-        <a href='#'>
+        <Link to='/'>
           <img src={logo}/>
-        </a>
+        </Link>
         <ul className='list'>
-          <li><a href='#'>Home</a></li>
-          <li><a href='#'>Food Dog</a></li>
-          <li><a href='#'>GitHub</a></li>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/'>Food Dog</Link></li>
+          <li><Link to='/'>GitHub</Link></li>
         </ul>
         <div className='current__user'>
-          <Text strong>User: {name}</Text>
+          <Avatar src={user?.avatar} size="large" />
+          <Text strong>{user?.name}</Text>
         </div>
       </div>
     </div>

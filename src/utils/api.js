@@ -28,6 +28,19 @@ class Api {
         .catch((err) => err.message)
     }
 
+    addPost(post){
+        return fetch(`${this._url}/posts`, {
+            method: 'POST',
+            headers: {
+                authorization: `Bearer ${this._token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(post)
+        })
+        .then((response) => response.json())
+        .catch((err) => err.message)
+    }
+
     getCurrentUser(){
         return fetch(`${this._url}/users/me`, {
             headers: {
@@ -52,6 +65,16 @@ class Api {
     deleteLike(postID){
         return fetch(`${this._url}/posts/likes/${postID}`, {
             method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${this._token}`
+            }
+        })
+        .then((response) => response.json())
+        .catch((err) => err.message)
+    }
+
+    getCommentUser(userID){
+        return fetch(`${this._url}/users/${userID}`, {
             headers: {
                 authorization: `Bearer ${this._token}`
             }

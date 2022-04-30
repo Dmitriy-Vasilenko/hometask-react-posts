@@ -1,16 +1,21 @@
 .postinfo__container {
     display: flex;
-    border: red;
+    position: relative;
+    margin-top: 30px;
 }
 
-.avatar__email {
+.avatar__emails {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    align-items: center;
+    border-top: 1px solid grey;
+    padding-top: 5px;
 }
 
 .content {
     margin-top: 15px;
+
 }
 
 button {
@@ -23,3 +28,28 @@ button {
 h4 {
     white-space: normal;
 }
+
+.data_created{
+    font-size: 12px;
+}
+
+.name__data {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments__text {
+    margin-bottom: 40px;
+}
+
+.comments__container {
+    margin-bottom: 10px;
+}
+
+.button__ant {
+    position: absolute;
+    left: 10px;
+    top: -35px;
+}
+
+

@@ -1,15 +1,17 @@
 import React from 'react';
 import { Button as ButtonAnt } from 'antd';
+import { useNavigate } from 'react-router';
 import 'antd/dist/antd.css';
 
 export const Button = () => {
+  const navigate = useNavigate();
   const click = () => {
-    console.log('Есть контакт');
+    navigate('post/create');
   };
 
   return (
     <div>
-      <ButtonAnt onClick={click}>Create post</ButtonAnt>
+      <ButtonAnt onClick={click}>Создать пост</ButtonAnt>
     </div>
   )
 }
