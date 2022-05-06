@@ -13,13 +13,11 @@ export const PostInfo = ({user, changePosts}) => {
   const [item, setItem] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
-  console.log(item?.likes.length);
 
   const isInUser = item?.author._id === user?._id;
 
   const [favorite, setFavorite] = useState(item?.likes || []);
   const isInFavorite = favorite.includes(user?._id);
-  console.log(favorite);
 
   const addFavorite = () => {
     api.addLike(item?._id)
@@ -101,10 +99,6 @@ export const PostInfo = ({user, changePosts}) => {
               <Text className='heart__sum'>{favorite?.length}</Text>
             </div>)
           }
-          {/* <div className='heart'>
-              <HeartFilled />
-              <Text className='heart__sum'>{item?.likes.length}</Text>
-          </div> */}
           {isInUser ? (<button onClick={handleClick} type='button'><DeleteOutlined/></button>) : (<p></p>)}
         </Card>
       </div>

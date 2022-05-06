@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 import { Card, Avatar, Tag, Timeline, Image } from 'antd';
 import { HeartFilled, CommentOutlined } from '@ant-design/icons';
@@ -15,6 +16,7 @@ import api from '../../utils/api';
 export const Post = ({ data, user }) => {
   const [favorite, setFavorite] = useState(data.likes || []);
   const isInFavorite = favorite.includes(user._id);
+  const navigate = useNavigate();
 
   const addFavorite = () => {
     api.addLike(data._id)
@@ -29,14 +31,13 @@ export const Post = ({ data, user }) => {
   };
 
   return (
-    <>
       <Card 
         className='post__container'
         title={
           <div className='avatar__email'>
             <Avatar src={data?.author.avatar} size="large" />
             <div>
-              <h4>{data?.author.name}</h4>
+              <Link to={`post/${data._id}`}>{data?.author.name}</Link>
               <p className='autor__about'>{data?.author.about}</p>
             </div>
           </div>
@@ -44,7 +45,7 @@ export const Post = ({ data, user }) => {
         style={{ width: 300 }}
       >
         <div className='avatar__email'>
-          <Link to={`post/${data._id}`}><Image preview={false} src={data?.image} /></Link>
+          <Image preview={false} src={data?.image} />
         </div>
         <div className='content'>
           <Text strong={true}>{data?.title}</Text>
@@ -76,6 +77,5 @@ export const Post = ({ data, user }) => {
           <Text className='heart__sum'>{data?.comments.length}</Text>
         </div>
       </Card>
-    </>
   );
 };

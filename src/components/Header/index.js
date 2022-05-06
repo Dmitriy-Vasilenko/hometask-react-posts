@@ -1,7 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import { Typography, Avatar } from 'antd';
+import { Typography, Avatar, Button } from 'antd';
 
 import logo from '../../assets/svg/logo.svg';
 import './index.css';
@@ -9,20 +10,29 @@ import './index.css';
 const { Text } = Typography;
 
 export const Header = ({user}) => {
+  const navigate = useNavigate();
+
+  const signOut = () => {
+    localStorage.setItem('token', '');
+    navigate(0);
+  };
+
+  const handleClick = () => {
+    navigate('user/edit')
+  }
+
   return (
     <div className='header'>
       <div className='header__container'>
         <Link to='/'>
           <img src={logo}/>
         </Link>
-        <ul className='list'>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/'>Food Dog</Link></li>
-          <li><Link to='/'>GitHub</Link></li>
-        </ul>
         <div className='current__user'>
-          <Avatar src={user?.avatar} size="large" />
-          <Text strong>{user?.name}</Text>
+          <div onClick={handleClick} style={{cursor: 'pointer'}}>
+            <Avatar src={user?.avatar} size="large" style={{marginRight: '10px'}}/>
+            <Text strong>{user?.name}</Text>
+          </div>
+          <Button onClick={signOut} style={{marginLeft: '10px', marginTop: '15px'}}>Выйти</Button>
         </div>
       </div>
     </div>

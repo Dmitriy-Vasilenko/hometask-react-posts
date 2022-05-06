@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router';
-import { Button, Image } from 'antd';
+import { Button } from 'antd';
 import './index.css';
 import api from '../../../utils/api';
 
@@ -15,10 +15,10 @@ export const CreatePost = ({changePosts}) => {
         event.preventDefault();
         const {target: {inputUrl, inputTitle, textArea, inputTags}} = event;
         api.addPost({
-            image: inputUrl.value,
-            title: inputTitle.value,
-            text: textArea.value,
-            tags: inputTags.value.split(', ' && ',')
+            image: inputUrl.value.trim(),
+            title: inputTitle.value.trim(),
+            text: textArea.value.trim(),
+            tags: inputTags.value.trim().split(', ' && ',')
         })
         .then((data) => {
             changePosts((prevState) => [...prevState, data]);
@@ -30,11 +30,12 @@ export const CreatePost = ({changePosts}) => {
 
   return (
     <form onSubmit={handleSubmit}>
+        <h1>Создание поста</h1>
         <div className='inputs'>
-            <input id='imgPost' placeholder='url картинки поста' type='url' name='inputUrl'/>
-            <input placeholder='Заголовок поста' name='inputTitle'/>
-            <textarea rows={4} placeholder='Текст поста' name='textArea'/>
-            <input placeholder='Введите теги через запятую' name='inputTags'/>
+            <input required id='imgPost' placeholder='url картинки поста' type='url' name='inputUrl'/>
+            <input required placeholder='Заголовок поста' name='inputTitle'/>
+            <textarea required rows={4} placeholder='Текст поста' name='textArea'/>
+            <input required placeholder='Введите теги через запятую' name='inputTags'/>
         </div>
         <div className='buttons'>
             <Button onClick={handelClick}>Отмена</Button>
