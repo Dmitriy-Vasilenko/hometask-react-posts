@@ -36,7 +36,6 @@ export const Registration = () => {
         } else {
             api.signUp({ email, password })
                 .then((createdUser) => {
-                    console.log({ createdUser });
                     return api.signIn({ email, password });
                 })
                 .then(onSignIn)
